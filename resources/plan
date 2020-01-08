@@ -1,0 +1,23 @@
+Welche Module benötigen wir?
+
+######Controller########
+
+-   index.js        -> Controller
+
+
+
+#########View###########
+-   CurrentTaskView.js  -> representiert einen einzelnen Task, der per newTask hinzugefügt werden kann
+    -   Labels 
+    -   Zeitstempel
+-   SearchBarView.js    -> repräsentiert die Suchleiste
+-   NewTaskView.js      -> Das Formular zum erstellen des neues Tasks (unten rechts)
+
+
+
+#########Model##########
+-   Config          -> beeinhaltet z.B. alle "Tags" die ein Task haben kann 
+-   Storage.js      -> Lokales Speichern der abgeschlossenen Tasks und des aktuell laufenden Task
+-   TaskList.js     -> repräsentiert die Liste der abgeschlossenen Tasks
+
+
