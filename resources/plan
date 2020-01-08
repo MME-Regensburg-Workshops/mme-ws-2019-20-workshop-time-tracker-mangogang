@@ -3,21 +3,33 @@ Welche Module benötigen wir?
 ######Controller########
 
 -   index.js        -> Controller
-
+    - task-button: onClick: öffnet NewTaskForm.js --> Fenster zum Task erstellen öffnet sich
 
 
 #########View###########
--   CurrentTaskView.js  -> representiert einen einzelnen Task, der per newTask hinzugefügt werden kann
-    -   Labels 
-    -   Zeitstempel
--   SearchBarView.js    -> repräsentiert die Suchleiste
--   NewTaskView.js      -> Das Formular zum erstellen des neues Tasks (unten rechts)
 
+-   (1) NewTaskFormView.js      -> repräsentiert das Eingabefeld für einen neuen Task (including addButtonClicking)
+    - task-description: TaskName (wird an currentTask übergeben)
+    - task-labels: TaskLabels
+    - button start: onClick: neuer CurrentTask wird in CurrentTask-Leiste angezeigt, NewTaskForm wird geschlossen
+    - button cancel: onClick: NewTaskForm schließt sich wieder, erstellen eines Task wird abgebrochen
+
+-   (2) CurrentTaskView.js  -> representiert einen einzelnen Task, der per newTask hinzugefügt werden kann
+    -   task-description: TaskName von NewTaskForm
+    -   task-current-time: counter wird gestartet
+    -   task-controls:
+        -   task-control pause: counter wird pausiert, task-control play wird angezeigt, task-control pause wird ausgeblendet
+        -   task-control play: counter wird fortgesetzt
+        -   task-control stop: counter wird gestoppt, currentTask wird aus currentTask gelöscht und in tasks-Liste gespeichert
+
+-   (3) TasksListView.js    -> repräsentiert Liste aller abgeschlossenen Tasks und Search
+    -   search-input: SearchBar zum Eingeben von TaskName oder TaskLabels
+    -   search-results: Liste der gefilterten Tasks
+        -   value: Summe der counter-times aller abgeschlossener Tasks
+        -   filter-info: Anzahl aller Tasks, die nicht durch die Suche gefiltert wurden
 
 
 #########Model##########
--   Config          -> beeinhaltet z.B. alle "Tags" die ein Task haben kann 
+-   Config          -> beinhaltet z.B. alle "Tags" die ein Task haben kann 
 -   Storage.js      -> Lokales Speichern der abgeschlossenen Tasks und des aktuell laufenden Task
--   TaskList.js     -> repräsentiert die Liste der abgeschlossenen Tasks
-
 
